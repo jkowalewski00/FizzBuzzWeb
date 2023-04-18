@@ -1,0 +1,47 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Fizz Buzz";
+}
+
+<style>
+    button {
+        float: left;
+        margin-top: 15px;
+    }
+
+    div.alert {
+        text-align: left;
+        height: 40px;
+        border-style: solid;
+        border: 3px;
+        margin-top: 65px;
+    }
+
+    .form-control {
+        border-style: solid;
+        border-width: thin;
+        height: 40px;
+        border-color: darkgray
+    }
+</style>
+
+<body>
+    <div class="text-center">
+        <link rel="stylesheet" href="~/css/StyleSheet.css" />
+        <h1 class="display-4">Welcome @Model.Name</h1><br />
+        <form method="post">
+            <label style="float: left" asp-for="FizzBuzz.Name"></label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Wprowadź swoje imię" asp-for="FizzBuzz.Name" />
+            <label style="float: left" asp-for="FizzBuzz.Year"></label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Podaj swój rok urodzenia" asp-for="FizzBuzz.Year" />
+            <button type="submit" class="btn btn-primary">Zatwierdź</button>
+            @if (Model.FizzBuzz != null)
+            {
+                <div class="alert alert-primary" role="alert">@Model.AlertMessgae</div>
+            }
+            <span asp-validation-for="FizzBuzz.Name" class="text-danger"></span><br />
+            <span asp-validation-for="FizzBuzz.Year" class="text-danger"></span>
+        </form>
+    </div>
+</body>

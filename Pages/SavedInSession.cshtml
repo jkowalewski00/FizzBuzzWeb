@@ -1,0 +1,16 @@
+﻿@page
+@model FizzBuzzWeb.Pages.SavedInSessionModel
+@{
+    ViewData["Title"] = "Data in session";
+}
+<p>Dane w zapisane w sesji</p>
+@if (Model.FizzBuzzs != null)
+{
+    <ul>
+        @foreach (var element in Model.FizzBuzzs)
+        {
+            <li>@element.Name, @element.Year - @(element.leapYear ? "Rok przestepny" : "To nie jest rok przestepny")</li>
+        }
+    </ul>
+
+}
